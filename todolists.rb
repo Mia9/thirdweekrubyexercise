@@ -1,3 +1,4 @@
+require './checklist'
 class Task
 	attr_accessor :description, :completed, :due_date, :assign_user, :priority
 	def initialize(description)
@@ -38,41 +39,7 @@ class Task
 
 end
 
-class Checklist  #collection of tasks(description)
-	attr_accessor :list ,:description ,:priority #connect description to Checklist
-	def initialize
-		@list = []
-		@description = description
-		@priority = "Normal"
-	end
-    
-    def make_list(description)
-		task = Task.new(description)
 
-		@list << task
-		puts "#{task.description} has been added to the list."
-    end
-    
-
-	# def make_list(description) #add description into selected list
-	# 	@list << description
-	# end
-
-	def remove_description(description) #remove selected description from selected list
-		@list.delete(description)   #if use .delete_at(index) use index number position of the element
-	end
-
-	def display_list
-		@list.each_with_index do | list, index|
-				if list.completed? #calling method from Task class
-					status = "[X]"
-				else 
-					status = "[ ]"
-				end
-		    puts "#{index +1} - #{status} - #{list.description}"
-		end       #the index plus 1 so that numbering starts from 1, not zero!
-	end
-end
 
 #testing code
 task1 = Task.new("Icecream!") #after make make_list method, no need manually type this
