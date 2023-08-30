@@ -1,25 +1,30 @@
-class Checklist  #collection of tasks(description)
-	attr_accessor :list ,:description ,:priority #connect description to Checklist
+class Checklist  # collection of tasks
+	attr_accessor :list, :title, :priority # connect title to Checklist
+	 
 	def initialize
 		@list = []
-		@description = description
+		@title = title
 		@priority = "Normal"
 	end
     
-    def make_list(description)
-		task = Task.new(description)
+    def add_list(task)
+		task = Task.new(task)
 
 		@list << task
-		puts "#{task.description} has been added to the list."
+		puts "#{task.title} has been added to the list."
     end
     
 
-	# def make_list(description) #add description into selected list
-	# 	@list << description
+	# def add_list(title) #add title into selected list
+	# 	@list << title
 	# end
 
-	def remove_description(description) #remove selected description from selected list
-		@list.delete(description)   #if use .delete_at(index) use index number position of the element
+	# def remove_title(title) #remove selected title from selected list
+	# 	@list.delete(title)   #if use .delete_at(index) use index number position of the element
+	# end
+
+	def remove_title(index)
+		@list.delete_at(index)
 	end
 
 	def display_list
@@ -29,7 +34,7 @@ class Checklist  #collection of tasks(description)
 				else 
 					status = "[ ]"
 				end
-		    puts "#{index +1} - #{status} - #{list.description}"
+		    puts "#{index +1} - #{status} - #{list.title}"
 		end       #the index plus 1 so that numbering starts from 1, not zero!
 	end
 end
