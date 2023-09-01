@@ -1,7 +1,7 @@
 class Checklist  # collection of tasks
 	attr_accessor :list, :title, :priority # connect title to Checklist
 	 
-	def initialize
+	def initialize(title)
 		@list = []
 		@title = title
 		@priority = "Normal"
@@ -14,17 +14,12 @@ class Checklist  # collection of tasks
 		puts "#{task.title} has been added to the list."
     end
     
-
-	# def add_list(title) #add title into selected list
-	# 	@list << title
-	# end
-
 	# def remove_title(title) #remove selected title from selected list
 	# 	@list.delete(title)   #if use .delete_at(index) use index number position of the element
 	# end
 
 	def remove_title(index)
-		@list.delete_at(index)
+		@list.delete_at(index -1)
 	end
 
 	def display_list

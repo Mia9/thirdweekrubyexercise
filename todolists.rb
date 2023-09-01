@@ -4,7 +4,7 @@ require './checklist'
 
 
 # testing code
-checklist1 = Checklist.new
+checklist1 = Checklist.new("Bun")
 puts "________"
 checklist1.add_list("Ice cream") # if type task,it only show #<Task:0x000001c218f99df0>
 checklist1.add_list("Chocolate")
